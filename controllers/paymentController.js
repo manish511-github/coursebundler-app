@@ -1,6 +1,6 @@
-import { catchAsyncError } from "../middlewares/catchAsyncError.js";
+import { catchAsyncError } from "../middlewares/CatchAsyncError.js";
 import { User } from "../models/User.js";
-import ErrorHandler from "../utils/errorHandler.js";
+import ErrorHandler from "../utils/ErrorHandler.js";
 import { instance } from "../server.js";
 import crypto from "crypto";
 import { Payment } from "../models/Payment.js";
