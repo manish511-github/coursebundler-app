@@ -18,9 +18,6 @@ app.use(
 );
 app.use(cookieParser());
 
-
-
-app.use(cookieParser());
 app.use(
   cors({
     origin: process.env.FRONTEND_URL,
@@ -43,13 +40,14 @@ app.use("/api/v1",course);
 app.use("/api/v1", user);
 app.use("/api/v1",payment);
 app.use("/api/v1",other);
-
-app.use(ErrorMiddleware);
-
 app.get("/", (req, res) =>
   res.send(
     `<h1>Site is Working. click <a href=${process.env.FRONTEND_URL}>here</a> to visit frontend.</h1>`
   )
 );
+
+app.use(ErrorMiddleware);
+
+
 
 export default app;
