@@ -93,7 +93,7 @@ export const paymentVerification = catchAsyncError(async (req, res, next) => {
       refund = true;
     }
   
-    await payment.remove();
+    await payment.deleteOne();
     user.subscription.id = undefined;
     user.subscription.status = undefined;
     await user.save();
@@ -102,7 +102,7 @@ export const paymentVerification = catchAsyncError(async (req, res, next) => {
       success: true,
       message: refund
         ? "Subscription cancelled, You will receive full refund within 7 days."
-        : "Subscription cancelled, Now refund initiated as subscription was cancelled after 7 days.",
+        : "Subscription cancelled, No refund initiated as subscription was cancelled after 7 days.",
     });
   });
   

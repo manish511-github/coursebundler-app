@@ -9,6 +9,11 @@ config ({
 })
 const app=express()
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 //Using Middlewares
 app.use(express.json());
 app.use(
@@ -25,6 +30,7 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
+
 
 
 
